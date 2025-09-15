@@ -16,16 +16,20 @@ import { UsersService } from './users.service';
 import { UpdateUser } from 'src/dtos/update-user-dto';
 import { SerializeInterceptor } from 'src/interceptors/serialize.interceptor';
 import { UserDto } from 'src/dtos/user.dto';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 @UseInterceptors(new SerializeInterceptor(UserDto))
 export class UsersController {
   // This makes the controller connects the service
-  constructor(private userService: UsersService) {}
+  constructor(
+    private userService: UsersService,
+    private authService: AuthService,
+  ) {}
 
   @Post('/signup')
   createNewUser(@Body() body: CreateUserDto) {
-    return this.userService.create(body.email, body.password);
+    return this.authService.signup(body.email, body.password);
   }
 
   @Get('/:id')
@@ -48,6 +52,7 @@ export class UsersController {
 
   @Patch('/:id')
   updateUser(@Body() body: UpdateUser, @Param('id') id: string) {
+    // The Email is optional and password is optional
     return this.userService.update(+id, body);
   }
 }

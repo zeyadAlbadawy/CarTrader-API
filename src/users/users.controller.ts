@@ -14,16 +14,16 @@ import {
   BadRequestException,
   UseGuards,
 } from '@nestjs/common';
-import { CreateUserDto } from 'src/dtos/create-user.dto';
+import { CreateUserDto } from '../dtos/create-user.dto';
 import { UsersService } from './users.service';
-import { UpdateUser } from 'src/dtos/update-user-dto';
-import { SerializeInterceptor } from 'src/interceptors/serialize.interceptor';
-import { UserDto } from 'src/dtos/user.dto';
+import { UpdateUser } from '../dtos/update-user-dto';
+import { SerializeInterceptor } from '../interceptors/serialize.interceptor';
+import { UserDto } from '../dtos/user.dto';
 import { AuthService } from './auth.service';
-import { CurrentUser } from 'src/decorators/current-user.decorator';
+import { CurrentUser } from '../decorators/current-user.decorator';
 import { CurrentUserInterceptor } from './interseptors/current-user.interceptor';
 import { User } from './user.entity';
-import { UserAuthGuard } from 'src/guards/user-auth.guard';
+import { UserAuthGuard } from '../guards/user-auth.guard';
 
 @Controller('auth')
 @UseInterceptors(new SerializeInterceptor(UserDto))

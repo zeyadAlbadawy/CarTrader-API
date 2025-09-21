@@ -7,6 +7,9 @@
 # .ENV
 .env.test
 .env.development
+
+db.sqlite
+test.sqlite
 # Logs
 logs
 *.log

@@ -6,7 +6,7 @@ import { UsersService } from 'src/users/users.service';
 declare global {
   namespace Express {
     interface Request {
-      currentUser?: User;
+      currentUser?: User | null;
     }
   }
 }
@@ -17,8 +17,6 @@ export class CurrentUserMiddleware implements NestMiddleware {
     const { userId } = req.session || {};
     if (userId) {
       const foundedUser = await this.userService.findOne(+userId);
-      console.log(foundedUser);
-      // @ts-ignore
       req.currentUser = foundedUser;
     }
     next();

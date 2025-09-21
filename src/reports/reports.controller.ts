@@ -34,7 +34,6 @@ export class ReportsController {
     return this.reportService.createReport(body, currentUser);
   }
 
-  @UseGuards(AdminGuard)
   @Patch('/:id')
   async updateReport(@Param('id') id: string, @Body() body: ApproveReportDto) {
     return await this.reportService.updateReportStats(+id, body);

@@ -7,6 +7,6 @@ import { Report } from './report.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([Report])], // This created report entity
   controllers: [ReportsController],
-  providers: [ReportsService],
+  providers: [ReportsService], // make it available inside the DI container
 })
 export class ReportsModule {}

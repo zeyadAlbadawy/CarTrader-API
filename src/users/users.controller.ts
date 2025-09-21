@@ -14,11 +14,11 @@ import {
   BadRequestException,
   UseGuards,
 } from '@nestjs/common';
-import { CreateUserDto } from '../dtos/create-user.dto';
+import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
-import { UpdateUser } from '../dtos/update-user-dto';
+import { UpdateUser } from './dtos/update-user-dto';
 import { SerializeInterceptor } from '../interceptors/serialize.interceptor';
-import { UserDto } from '../dtos/user.dto';
+import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
 import { CurrentUser } from '../decorators/current-user.decorator';
 import { CurrentUserInterceptor } from './interseptors/current-user.interceptor';

@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 import { plainToClass, plainToInstance } from 'class-transformer';
 import { map, Observable } from 'rxjs';
-import { UserDto } from 'src/dtos/user.dto';
 
 interface classConstructor {
   new (...args: any[]): {};

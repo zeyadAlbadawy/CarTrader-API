@@ -5,6 +5,7 @@ export class UserAuthGuard implements CanActivate {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    return context.switchToHttp().getRequest().session.userId;
+    const request = context.switchToHttp().getRequest().session.userId;
+    return request;
   }
 }
